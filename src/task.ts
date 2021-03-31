@@ -41,7 +41,9 @@ export function startTask(text: string): MistyTask {
     spin(true)
   }
   install()
-  task.render(false)
+  if (!wiped) {
+    task.render(false)
+  }
   activeTasks.add(task)
   return task
 }
