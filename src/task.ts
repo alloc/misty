@@ -41,7 +41,7 @@ export function startTask(text: string): MistyTask {
     spin(true)
   }
   install()
-  task.render()
+  task.render(false)
   activeTasks.add(task)
   return task
 }
