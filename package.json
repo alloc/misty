@@ -1,0 +1,30 @@
+{
+  "name": "misty",
+  "version": "1.0.0",
+  "description": "Logging utils for command line",
+  "author": "Alec Larson",
+  "license": "MIT",
+  "repository": "alloc/misty",
+  "prettier": "@alloc/prettier-config",
+  "files": [
+    "src",
+    "*.js",
+    "*.js.map",
+    "*.d.ts",
+    "!test.js"
+  ],
+  "scripts": {
+    "build": "tsc -p .",
+    "prepare": "yarn build"
+  },
+  "dependencies": {
+    "is-interactive": "^1.0.0",
+    "kleur": "^4.1.4"
+  },
+  "devDependencies": {
+    "@alloc/prettier-config": "^1.0.0",
+    "@types/node": "^14.14.37",
+    "prettier": "^2.0.5",
+    "typescript": "^4.0.0"
+  }
+}

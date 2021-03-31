@@ -1,0 +1,16 @@
+{
+  "include": ["src"],
+  "exclude": [],
+  "compilerOptions": {
+    "declaration": true,
+    "esModuleInterop": true,
+    "lib": ["es2018"],
+    "module": "commonjs",
+    "moduleResolution": "node",
+    "noUnusedLocals": true,
+    "outDir": ".",
+    "strict": true,
+    "sourceMap": true,
+    "target": "es2018"
+  }
+}
