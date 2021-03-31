@@ -5,7 +5,7 @@ import { clear, success, print, isInteractive } from '.'
 let activeTasks = new Set<MistyTask>()
 
 export interface MistyTask {
-  render(): void
+  render(showElapsed?: boolean): void
   update(msg: string): void
   finish(msg?: string): void
 }
@@ -13,8 +13,9 @@ export interface MistyTask {
 export function startTask(text: string): MistyTask {
   let start = Date.now()
   const task: MistyTask = {
-    render() {
-      print(getSpinner() + ` ${text} ` + k.gray(formatElapsed(start)) + '\n')
+    render(showElapsed = true) {
+      const elapsed = showElapsed ? k.gray(formatElapsed(start)) : ''
+      print(getSpinner() + ` ${text} ` + elapsed + '\n')
     },
     update(msg) {
       text = msg
