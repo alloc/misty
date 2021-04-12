@@ -1,6 +1,6 @@
 {
   "name": "misty",
-  "version": "1.0.2",
+  "version": "1.1.0",
   "description": "Logging utils for command line",
   "author": "Alec Larson",
   "license": "MIT",
