@@ -1,6 +1,6 @@
 import k from 'kleur'
 import { getSpinner, spin, spinListeners } from './spin'
-import { clear, success, print, isInteractive } from '.'
+import { clear, success, print, isInteractive, formatElapsed } from '.'
 
 let activeTasks = new Set<MistyTask>()
 
@@ -59,13 +59,6 @@ function printTasks() {
       wiped = false
     })
   }
-}
-
-function formatElapsed(start: number) {
-  const elapsedMs = Date.now() - start
-  return elapsedMs < 200
-    ? elapsedMs + 'ms'
-    : (elapsedMs / 1000).toFixed(1) + 's'
 }
 
 let installed = false

@@ -52,3 +52,11 @@ export function clear(lines?: number) {
     }
   }
 }
+
+/** Format an elapsed time (in milliseconds) to a human-readable string */
+export function formatElapsed(start: number) {
+  const elapsedMs = Date.now() - start
+  return elapsedMs < 200
+    ? elapsedMs + 'ms'
+    : (elapsedMs / 1000).toFixed(1) + 's'
+}
