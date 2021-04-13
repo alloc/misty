@@ -119,3 +119,9 @@ Prompts are not supported by `misty`, but I recommend these packages:
 ### Colors
 
 Color support is provided by [`kleur`](https://github.com/lukeed/kleur), so you should use that too.
+
+&nbsp;
+
+### Logging
+
+Logs are handled by [`shared-log`](https://github.com/alloc/shared-log).

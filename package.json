@@ -19,7 +19,8 @@
   },
   "dependencies": {
     "is-interactive": "^1.0.0",
-    "kleur": "^4.1.4"
+    "kleur": "^4.1.4",
+    "shared-log": "^1.0.0"
   },
   "devDependencies": {
     "@alloc/prettier-config": "^1.0.0",
