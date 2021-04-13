@@ -31,8 +31,8 @@ export function fatal(...args: any[]): never {
 /**
  * Log a message prefixed by a green ✔︎
  */
-export function success(msg: string) {
-  emit('info', [k.green('✔︎'), msg], callerPath())
+export function success(...args: any[]) {
+  emit('info', [k.green('✔︎'), ...args], callerPath())
 }
 
 /** Clear the screen and its history */
