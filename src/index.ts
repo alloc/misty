@@ -1,5 +1,5 @@
+import { emit, callerPath } from 'shared-log'
 import checkInteractivity from 'is-interactive'
-import log from 'shared-log'
 import k from 'kleur'
 
 /**
@@ -17,14 +17,14 @@ export const print = process.stdout.write.bind(process.stdout)
  * Log a yellow message prefixed by `[!]`
  */
 export function warn(msg: string) {
-  log.warn(k.yellow('[!] ' + msg))
+  emit('warn', [k.yellow('[!] ' + msg)], callerPath())
 }
 
 /**
  * Log an error message and call `process.exit(1)`
  */
 export function fatal(msg: string): never {
-  log.error(k.red('[!]'), msg)
+  emit('error', [k.red('[!]'), msg], callerPath())
   process.exit(1)
 }
 
@@ -32,7 +32,7 @@ export function fatal(msg: string): never {
  * Log a message prefixed by a green ✔︎
  */
 export function success(msg: string) {
-  log(k.green('✔︎'), msg)
+  emit('info', [k.green('✔︎'), msg], callerPath())
 }
 
 /** Clear the screen and its history */
