@@ -23,8 +23,8 @@ export function warn(msg: string) {
 /**
  * Log an error message and call `process.exit(1)`
  */
-export function fatal(msg: string): never {
-  emit('error', [k.red('[!]'), msg], callerPath())
+export function fatal(...args: any[]): never {
+  emit('error', [k.red('[!]'), ...args], callerPath())
   process.exit(1)
 }
 
