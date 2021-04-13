@@ -1,5 +1,5 @@
-import isInteractive from 'is-interactive'
-import k from 'kleur'
+import isInteractive = require('is-interactive')
+import k = require('kleur')
 
 let frame = isInteractive() ? 0 : -1
 let spinning: NodeJS.Timeout

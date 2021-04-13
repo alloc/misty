@@ -1,4 +1,4 @@
-import k from 'kleur'
+import k = require('kleur')
 import { getSpinner, spin, spinListeners } from './spin'
 import { clear, success, print, isInteractive, formatElapsed } from '.'
 

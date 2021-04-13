@@ -1,6 +1,6 @@
 import { emit, callerPath } from 'shared-log'
-import checkInteractivity from 'is-interactive'
-import k from 'kleur'
+import checkInteractivity = require('is-interactive')
+import k = require('kleur')
 
 /**
  * Equals true when `process.stdout` is a TTY.
