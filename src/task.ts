@@ -1,10 +1,12 @@
 import k = require('kleur')
+import stripAnsi = require('strip-ansi')
 import { getSpinner, spin, spinListeners } from './spin'
 import { clear, success, print, isInteractive, formatElapsed } from '.'
 
 let activeTasks = new Set<MistyTask>()
 
 export interface MistyTask {
+  height: number
   render(showElapsed?: boolean): void
   update(msg: string): void
   finish(msg?: string): void
@@ -12,10 +14,20 @@ export interface MistyTask {
 
 export function startTask(text: string): MistyTask {
   let start = Date.now()
+  let output = ''
   const task: MistyTask = {
+    get height() {
+      const lines = stripAnsi(output).split('\n')
+      return lines.reduce(
+        (height, line) =>
+          height + Math.ceil(line.length / process.stdout.columns),
+        0
+      )
+    },
     render(showElapsed = true) {
       const elapsed = showElapsed ? k.gray(formatElapsed(start)) : ''
-      print(getSpinner() + ` ${text} ` + elapsed + '\n')
+      output = getSpinner() + ` ${text} ` + elapsed
+      print(output + '\n')
     },
     update(msg) {
       text = msg
@@ -53,12 +65,18 @@ let wiped = false
 function printTasks() {
   if (!wiped && activeTasks.size) {
     wiped = true
-    clear(activeTasks.size)
+    clear(getTasksHeight())
     process.nextTick(() => {
       activeTasks.forEach(task => task.render())
       wiped = false
     })
   }
+}
+
+function getTasksHeight() {
+  let height = 0
+  activeTasks.forEach(task => (height += task.height))
+  return height
 }
 
 let installed = false
