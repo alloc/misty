@@ -1,76 +1,5 @@
-dependencies:
-  is-interactive: 1.0.0
-  kleur: 4.1.4
-  shared-log: 1.2.3
-devDependencies:
-  '@alloc/prettier-config': 1.0.0
-  '@types/node': 14.14.37
-  prettier: 2.2.1
-  typescript: 4.2.3
-lockfileVersion: 5.2
-packages:
-  /@alloc/prettier-config/1.0.0:
-    dev: true
-    resolution:
-      integrity: sha512-xm50V1qxSdTh1O1fKA+gqcU605YSnxfq6HwtYSFU3fRsKMFnUSuSOxqSAPI7y2sRxqPed2EIuGmNn107LVQM6g==
-  /@types/node/14.14.37:
-    resolution:
-      integrity: sha512-XYmBiy+ohOR4Lh5jE379fV2IU+6Jn4g5qASinhitfyO71b/sCo6MKsMLF5tc7Zf2CE8hViVQyYSobJNke8OvUw==
-  /caller-callsite/4.1.0:
-    dependencies:
-      callsites: 3.1.0
-    dev: false
-    engines:
-      node: '>=8'
-    resolution:
-      integrity: sha512-99nnnGlJexTc41xwQTr+mWl15OI5PPczUJzM4YRE7QjkefMKCXGa5gfQjCOuVrD+1TjI/fevIDHg2nz3iYN5Ig==
-  /caller-path/3.0.0:
-    dependencies:
-      caller-callsite: 4.1.0
-    dev: false
-    engines:
-      node: '>=8'
-    resolution:
-      integrity: sha512-8nvMBmBgTmEfAXywJf27jbPZlURi5xUWLwkTXa3hZFcEZa5iRnMP4sF0p00CstWNHKBENVyYWDRSByNRdshdgQ==
-  /callsites/3.1.0:
-    dev: false
-    engines:
-      node: '>=6'
-    resolution:
-      integrity: sha512-P8BjAsXvZS+VIDUI11hHCQEv74YT67YUi5JJFNWIqL235sBmjX4+qx9Muvls5ivyNENctx46xQLQ3aTuE7ssaQ==
-  /is-interactive/1.0.0:
-    dev: false
-    engines:
-      node: '>=8'
-    resolution:
-      integrity: sha512-2HvIEKRoqS62guEC+qBjpvRubdX910WCMuJTZ+I9yvqKU2/12eSL549HMwtabb4oupdj2sMP50k+XJfB/8JE6w==
-  /kleur/4.1.4:
-    dev: false
-    engines:
-      node: '>=6'
-    resolution:
-      integrity: sha512-8QADVssbrFjivHWQU7KkMgptGTl6WAcSdlbBPY4uNF+mWr6DGcKrvY2w4FQJoXch7+fKMjj0dRrL75vk3k23OA==
-  /prettier/2.2.1:
-    dev: true
-    engines:
-      node: '>=10.13.0'
-    hasBin: true
-    resolution:
-      integrity: sha512-PqyhM2yCjg/oKkFPtTGUojv7gnZAoG80ttl45O6x2Ug/rMJw4wcc9k6aaf2hibP7BGVCCM33gZoGjyvt9mm16Q==
-  /shared-log/1.2.3:
-    dependencies:
-      '@types/node': 14.14.37
-      caller-path: 3.0.0
-    dev: false
-    resolution:
-      integrity: sha512-dwdtXA1l0587gupeJmyLFYl9gCQK78n1FU27Bt33hDHhiXJQvBkqxE97pZGZnuQn4UcNWFad6rAe0FJJjlNgtQ==
-  /typescript/4.2.3:
-    dev: true
-    engines:
-      node: '>=4.2.0'
-    hasBin: true
-    resolution:
-      integrity: sha512-qOcYwxaByStAWrBf4x0fibwZvMRG+r4cQoTjbPtUlrWjBHbmCAww1i448U0GJ+3cNNEtebDteo/cHOR3xJ4wEw==
+lockfileVersion: 5.3
+
 specifiers:
   '@alloc/prettier-config': ^1.0.0
   '@types/node': ^14.14.37
@@ -78,4 +7,72 @@ specifiers:
   kleur: ^4.1.4
   prettier: ^2.0.5
   shared-log: ^1.2.3
+  strip-ansi: '6'
   typescript: ^4.0.0
+
+dependencies:
+  is-interactive: 1.0.0
+  kleur: 4.1.4
+  shared-log: 1.2.4
+  strip-ansi: 6.0.0
+
+devDependencies:
+  '@alloc/prettier-config': 1.0.0
+  '@types/node': 14.14.37
+  prettier: 2.2.1
+  typescript: 4.2.3
+
+packages:
+
+  /@alloc/prettier-config/1.0.0:
+    resolution: {integrity: sha512-xm50V1qxSdTh1O1fKA+gqcU605YSnxfq6HwtYSFU3fRsKMFnUSuSOxqSAPI7y2sRxqPed2EIuGmNn107LVQM6g==}
+    dev: true
+
+  /@types/node/14.14.37:
+    resolution: {integrity: sha512-XYmBiy+ohOR4Lh5jE379fV2IU+6Jn4g5qASinhitfyO71b/sCo6MKsMLF5tc7Zf2CE8hViVQyYSobJNke8OvUw==}
+
+  /ansi-regex/5.0.0:
+    resolution: {integrity: sha512-bY6fj56OUQ0hU1KjFNDQuJFezqKdrAyFdIevADiqrWHwSlbmBNMHp5ak2f40Pm8JTFyM2mqxkG6ngkHO11f/lg==}
+    engines: {node: '>=8'}
+    dev: false
+
+  /callsites/3.1.0:
+    resolution: {integrity: sha512-P8BjAsXvZS+VIDUI11hHCQEv74YT67YUi5JJFNWIqL235sBmjX4+qx9Muvls5ivyNENctx46xQLQ3aTuE7ssaQ==}
+    engines: {node: '>=6'}
+    dev: false
+
+  /is-interactive/1.0.0:
+    resolution: {integrity: sha512-2HvIEKRoqS62guEC+qBjpvRubdX910WCMuJTZ+I9yvqKU2/12eSL549HMwtabb4oupdj2sMP50k+XJfB/8JE6w==}
+    engines: {node: '>=8'}
+    dev: false
+
+  /kleur/4.1.4:
+    resolution: {integrity: sha512-8QADVssbrFjivHWQU7KkMgptGTl6WAcSdlbBPY4uNF+mWr6DGcKrvY2w4FQJoXch7+fKMjj0dRrL75vk3k23OA==}
+    engines: {node: '>=6'}
+    dev: false
+
+  /prettier/2.2.1:
+    resolution: {integrity: sha512-PqyhM2yCjg/oKkFPtTGUojv7gnZAoG80ttl45O6x2Ug/rMJw4wcc9k6aaf2hibP7BGVCCM33gZoGjyvt9mm16Q==}
+    engines: {node: '>=10.13.0'}
+    hasBin: true
+    dev: true
+
+  /shared-log/1.2.4:
+    resolution: {integrity: sha512-s4DnLejD7jj0iynRbzMCOqraSGDoZQgkNjX2phhSTLTtEhzlrwNISpjOxIVM1pLp3CwSNL1gQaZnlMgl6gmEpg==}
+    dependencies:
+      '@types/node': 14.14.37
+      callsites: 3.1.0
+    dev: false
+
+  /strip-ansi/6.0.0:
+    resolution: {integrity: sha512-AuvKTrTfQNYNIctbR1K/YGTR1756GycPsg7b9bdV9Duqur4gv6aKqHXah67Z8ImS7WEz5QVcOtlfW2rZEugt6w==}
+    engines: {node: '>=8'}
+    dependencies:
+      ansi-regex: 5.0.0
+    dev: false
+
+  /typescript/4.2.3:
+    resolution: {integrity: sha512-qOcYwxaByStAWrBf4x0fibwZvMRG+r4cQoTjbPtUlrWjBHbmCAww1i448U0GJ+3cNNEtebDteo/cHOR3xJ4wEw==}
+    engines: {node: '>=4.2.0'}
+    hasBin: true
+    dev: true
