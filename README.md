@@ -27,6 +27,7 @@ node misty/test.js
 import {
   isInteractive,
   warn,
+  warnOnce,
   fatal,
   success,
   clear,
@@ -39,6 +40,9 @@ if (isInteractive) {
 
 // Print a yellow message with [!] in front.
 warn('Be careful')
+
+// Like `warn` but messages are deduplicated.
+warnOnce('Deprecated: Use foo instead')
 
 // Print a message to stderr with red [!] in front. Then call process.exit(1)
 fatal('Bollocks')
