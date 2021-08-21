@@ -20,6 +20,16 @@ export function warn(msg: string) {
   emit('warn', [k.yellow('[!] ' + msg)], callerPath())
 }
 
+const pastWarnings = new Set<string>()
+
+/** Print a warning at most once */
+export function warnOnce(msg: string) {
+  if (!pastWarnings.has(msg)) {
+    pastWarnings.add(msg)
+    warn(msg)
+  }
+}
+
 /**
  * Log an error message and call `process.exit(1)`
  */
