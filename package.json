@@ -21,7 +21,6 @@
     "prepare": "yarn build"
   },
   "dependencies": {
-    "is-interactive": "^1.0.0",
     "kleur": "^4.1.4",
     "shared-log": "^1.2.3",
     "strip-ansi": "^6.0.0"

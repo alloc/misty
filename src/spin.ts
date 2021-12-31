@@ -1,7 +1,7 @@
-import isInteractive = require('is-interactive')
 import { cyan } from 'kleur/colors'
+import { isInteractive } from './interactive'
 
-let frame = isInteractive() ? 0 : -1
+let frame = isInteractive ? 0 : -1
 let spinning: NodeJS.Timeout
 let spinCount = 0
 

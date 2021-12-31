@@ -3,7 +3,6 @@ lockfileVersion: 5.3
 specifiers:
   '@alloc/prettier-config': ^1.0.0
   '@types/node': ^14.14.37
-  is-interactive: ^1.0.0
   kleur: ^4.1.4
   prettier: ^2.0.5
   shared-log: ^1.2.3
@@ -12,7 +11,6 @@ specifiers:
   typescript: ^4.0.0
 
 dependencies:
-  is-interactive: 1.0.0
   kleur: 4.1.4
   shared-log: 1.2.4
   strip-ansi: 6.0.0
@@ -477,11 +475,6 @@ packages:
     dependencies:
       is-extglob: 2.1.1
     dev: true
-
-  /is-interactive/1.0.0:
-    resolution: {integrity: sha512-2HvIEKRoqS62guEC+qBjpvRubdX910WCMuJTZ+I9yvqKU2/12eSL549HMwtabb4oupdj2sMP50k+XJfB/8JE6w==}
-    engines: {node: '>=8'}
-    dev: false
 
   /is-number/7.0.0:
     resolution: {integrity: sha512-41Cifkg6e8TylSpdtTpeLVMqvSBEVzTttHvERD741+pnZ8ANv0004MRL43QKPDlK9cGvNp6NZWZUBlbGXYxxng==}

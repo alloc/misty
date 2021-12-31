@@ -1,14 +1,8 @@
 import { green, red, yellow } from 'kleur/colors'
 import { callerPath, emit } from 'shared-log'
-import checkInteractivity = require('is-interactive')
+import { isInteractive } from './interactive'
 
-/**
- * Equals true when `process.stdout` is a TTY.
- *
- * When false, the `clear` and `spin` functions do nothing,
- * and `MistyTask` methods are restricted to append-only logs.
- */
-export const isInteractive = checkInteractivity()
+export { isInteractive }
 
 /** Write to the current line */
 export const print = process.stdout.write.bind(process.stdout)
