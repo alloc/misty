@@ -3,6 +3,7 @@
   "version": "1.4.1",
   "description": "Logging utils for command line",
   "author": "Alec Larson",
+  "module": "index.mjs",
   "license": "MIT",
   "repository": "alloc/misty",
   "prettier": "@alloc/prettier-config",
@@ -10,11 +11,13 @@
     "src",
     "*.js",
     "*.js.map",
+    "*.mjs",
+    "*.mjs.map",
     "*.d.ts",
     "!test.js"
   ],
   "scripts": {
-    "build": "tsc -p .",
+    "build": "tsup",
     "prepare": "yarn build"
   },
   "dependencies": {
@@ -27,6 +30,21 @@
     "@alloc/prettier-config": "^1.0.0",
     "@types/node": "^14.14.37",
     "prettier": "^2.0.5",
+    "tsup": "^5.11.9",
     "typescript": "^4.0.0"
+  },
+  "exports": {
+    ".": {
+      "require": "./index.js",
+      "import": "./index.mjs"
+    },
+    "./spin": {
+      "require": "./spin.js",
+      "import": "./spin.mjs"
+    },
+    "./task": {
+      "require": "./task.js",
+      "import": "./task.mjs"
+    }
   }
 }
