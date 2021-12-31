@@ -36,15 +36,18 @@
   "exports": {
     ".": {
       "require": "./index.js",
-      "import": "./index.mjs"
+      "import": "./index.mjs",
+      "types": "./index.d.ts"
     },
     "./spin": {
       "require": "./spin.js",
-      "import": "./spin.mjs"
+      "import": "./spin.mjs",
+      "types": "./spin.d.ts"
     },
     "./task": {
       "require": "./task.js",
-      "import": "./task.mjs"
+      "import": "./task.mjs",
+      "types": "./task.d.ts"
     }
   }
 }
