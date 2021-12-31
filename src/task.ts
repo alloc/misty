@@ -1,7 +1,7 @@
 import { gray, white } from 'kleur/colors'
+import stripAnsi from 'strip-ansi'
 import { clear, formatElapsed, isInteractive, print, success } from '.'
 import { getSpinner, spin, spinListeners } from './spin'
-import stripAnsi = require('strip-ansi')
 
 let activeTasks = new Set<MistyTask>()
 

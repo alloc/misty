@@ -22,13 +22,13 @@
   },
   "dependencies": {
     "kleur": "^4.1.4",
-    "shared-log": "^1.2.3",
-    "strip-ansi": "^6.0.0"
+    "shared-log": "^1.2.3"
   },
   "devDependencies": {
     "@alloc/prettier-config": "^1.0.0",
     "@types/node": "^14.14.37",
     "prettier": "^2.0.5",
+    "strip-ansi": "^7.0.1",
     "tsup": "^5.11.9",
     "typescript": "^4.0.0"
   },
