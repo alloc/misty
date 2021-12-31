@@ -1,6 +1,6 @@
-import { emit, callerPath } from 'shared-log'
+import { green, red, yellow } from 'kleur/colors'
+import { callerPath, emit } from 'shared-log'
 import checkInteractivity = require('is-interactive')
-import k = require('kleur')
 
 /**
  * Equals true when `process.stdout` is a TTY.
@@ -17,7 +17,7 @@ export const print = process.stdout.write.bind(process.stdout)
  * Log a yellow message prefixed by `[!]`
  */
 export function warn(msg: string) {
-  emit('warn', [k.yellow('[!] ' + msg)], callerPath())
+  emit('warn', [yellow('[!] ' + msg)], callerPath())
 }
 
 const pastWarnings = new Set<string>()
@@ -34,7 +34,7 @@ export function warnOnce(msg: string) {
  * Log an error message and call `process.exit(1)`
  */
 export function fatal(...args: any[]): never {
-  emit('error', [k.red('[!]'), ...args], callerPath())
+  emit('error', [red('[!]'), ...args], callerPath())
   process.exit(1)
 }
 
@@ -42,7 +42,7 @@ export function fatal(...args: any[]): never {
  * Log a message prefixed by a green ✔︎
  */
 export function success(...args: any[]) {
-  emit('info', [k.green('✔︎'), ...args], callerPath())
+  emit('info', [green('✔︎'), ...args], callerPath())
 }
 
 /** Clear the screen and its history */

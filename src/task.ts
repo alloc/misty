@@ -1,7 +1,7 @@
-import k = require('kleur')
-import stripAnsi = require('strip-ansi')
+import { gray, white } from 'kleur/colors'
+import { clear, formatElapsed, isInteractive, print, success } from '.'
 import { getSpinner, spin, spinListeners } from './spin'
-import { clear, success, print, isInteractive, formatElapsed } from '.'
+import stripAnsi = require('strip-ansi')
 
 let activeTasks = new Set<MistyTask>()
 
@@ -12,7 +12,7 @@ export interface MistyTask {
   finish(msg?: string): void
 }
 
-export function startTask(text: string): MistyTask {
+export function startTask(text: string, hideSpinner?: boolean): MistyTask {
   let start = Date.now()
   let output = ''
   const task: MistyTask = {
@@ -25,8 +25,9 @@ export function startTask(text: string): MistyTask {
       )
     },
     render(showElapsed = true) {
-      const elapsed = showElapsed ? k.gray(formatElapsed(start)) : ''
-      output = getSpinner() + ` ${text} ` + elapsed
+      const elapsed = showElapsed ? gray(formatElapsed(start)) : ''
+      output = hideSpinner ? '' : getSpinner() + ' '
+      output += text + ' ' + elapsed
       print(output + '\n')
     },
     update(msg) {
@@ -38,7 +39,7 @@ export function startTask(text: string): MistyTask {
     finish(msg) {
       printTasks()
       if (msg) {
-        const color = msg.endsWith(' in') ? k.white : k.gray
+        const color = msg.endsWith(' in') ? white : gray
         success(msg + color(' ' + formatElapsed(start)))
       }
       activeTasks.delete(this)

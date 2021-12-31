@@ -1,5 +1,5 @@
 import isInteractive = require('is-interactive')
-import k = require('kleur')
+import { cyan } from 'kleur/colors'
 
 let frame = isInteractive() ? 0 : -1
 let spinning: NodeJS.Timeout
@@ -8,7 +8,7 @@ let spinCount = 0
 let spinner: MistySpinner = {
   interval: 80,
   frames: ['⠋', '⠙', '⠹', '⠸', '⠼', '⠴', '⠦', '⠧', '⠇', '⠏'],
-  color: k.cyan,
+  color: cyan,
 }
 
 /** Get the current spinner string */
@@ -42,5 +42,5 @@ export const spinListeners = new Set<Function>()
 export interface MistySpinner {
   interval: number
   frames: string[]
-  color: k.Color
+  color: (input: string) => string
 }
