@@ -1,6 +1,6 @@
 {
   "name": "misty",
-  "version": "1.4.3",
+  "version": "1.4.4",
   "description": "Logging utils for command line",
   "author": "Alec Larson",
   "module": "index.mjs",
