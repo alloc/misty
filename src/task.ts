@@ -8,11 +8,16 @@ let activeTasks = new Set<MistyTask>()
 export interface MistyTask {
   height: number
   render(showElapsed?: boolean): void
-  update(msg: string): void
+  update(msg?: string): void
   finish(msg?: string): void
 }
 
-export function startTask(text: string, hideSpinner?: boolean): MistyTask {
+export function startTask(
+  init: string | (() => string),
+  hideSpinner?: boolean
+): MistyTask {
+  let text = typeof init == 'string' ? init : init()
+  let render = typeof init == 'string' ? () => text : init
   let start = Date.now()
   let output = ''
   const task: MistyTask = {
@@ -30,7 +35,7 @@ export function startTask(text: string, hideSpinner?: boolean): MistyTask {
       output += text + ' ' + elapsed
       print(output + '\n')
     },
-    update(msg) {
+    update(msg = render()) {
       text = msg
       if (!isInteractive) {
         this.render()
