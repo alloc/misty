@@ -36,9 +36,11 @@ export function startTask(
       print(output + '\n')
     },
     update(msg = render()) {
-      text = msg
-      if (!isInteractive) {
-        this.render()
+      if (text !== msg) {
+        text = msg
+        if (!isInteractive) {
+          this.render()
+        }
       }
     },
     finish(msg) {
