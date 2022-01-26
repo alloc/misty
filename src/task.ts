@@ -44,7 +44,9 @@ export function startTask(
       }
     },
     finish(msg) {
-      printTasks()
+      if (isInteractive) {
+        printTasks()
+      }
       if (msg) {
         const color = msg.endsWith(' in') ? white : gray
         success(msg + color(' ' + formatElapsed(start)))
