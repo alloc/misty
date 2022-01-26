@@ -1,6 +1,7 @@
 lockfileVersion: 5.3
 
 specifiers:
+  '@alloc/fast-rimraf': ^1.0.8
   '@alloc/prettier-config': ^1.0.0
   '@types/node': ^14.14.37
   kleur: ^4.1.4
@@ -15,6 +16,7 @@ dependencies:
   shared-log: 1.2.4
 
 devDependencies:
+  '@alloc/fast-rimraf': 1.0.8
   '@alloc/prettier-config': 1.0.0
   '@types/node': 14.14.37
   prettier: 2.2.1
@@ -23,6 +25,11 @@ devDependencies:
   typescript: 4.2.3
 
 packages:
+
+  /@alloc/fast-rimraf/1.0.8:
+    resolution: {integrity: sha512-TsRTRLLDW6Q4fWBAYlbkcaHQDAANKsI0smrhS/1x7/GHcjVxo+r+2VRbqrWaYpmjdhvCp5v7n2wtwkMYp+Kivw==}
+    hasBin: true
+    dev: true
 
   /@alloc/prettier-config/1.0.0:
     resolution: {integrity: sha512-xm50V1qxSdTh1O1fKA+gqcU605YSnxfq6HwtYSFU3fRsKMFnUSuSOxqSAPI7y2sRxqPed2EIuGmNn107LVQM6g==}
