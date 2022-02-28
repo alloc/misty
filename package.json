@@ -42,11 +42,13 @@
     },
     "./spin": {
       "types": "./dist/spin.d.ts",
-      "default": "./spin.js"
+      "node": "./spin.js",
+      "default": "./stub.js"
     },
     "./task": {
       "types": "./dist/task.d.ts",
-      "default": "./task.js"
+      "node": "./task.js",
+      "default": "./stub.js"
     }
   }
 }

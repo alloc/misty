@@ -1,7 +1,8 @@
 {
-  "include": ["src"],
+  "include": ["src", "stub.js"],
   "exclude": [],
   "compilerOptions": {
+    "checkJs": true,
     "declaration": true,
     "lib": ["es2018"],
     "module": "commonjs",
