@@ -10,12 +10,12 @@
   "prettier": "@alloc/prettier-config",
   "files": [
     "src",
+    "dist",
     "*.js",
     "*.js.map",
-    "*.mjs",
-    "*.mjs.map",
-    "*.d.ts",
-    "!test.js"
+    "!test.js",
+    "!dist/spin.mjs",
+    "!dist/task.mjs"
   ],
   "scripts": {
     "build": "rimraf chunk-* && tsup",
@@ -36,19 +36,17 @@
   },
   "exports": {
     ".": {
-      "require": "./index.js",
-      "import": "./index.mjs",
-      "types": "./index.d.ts"
+      "require": "./dist/index.js",
+      "import": "./dist/index.mjs",
+      "types": "./dist/index.d.ts"
     },
     "./spin": {
-      "require": "./spin.js",
-      "import": "./spin.mjs",
-      "types": "./spin.d.ts"
+      "types": "./dist/spin.d.ts",
+      "default": "./spin.js"
     },
     "./task": {
-      "require": "./task.js",
-      "import": "./task.mjs",
-      "types": "./task.d.ts"
+      "types": "./dist/task.d.ts",
+      "default": "./task.js"
     }
   }
 }

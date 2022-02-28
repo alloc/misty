@@ -1,7 +1,2 @@
+dist
 node_modules
-*.js
-*.js.map
-*.mjs
-*.mjs.map
-*.d.ts
-!test.js
