@@ -14,9 +14,7 @@
     "dist",
     "*.js",
     "*.js.map",
-    "!test.js",
-    "!dist/spin.mjs",
-    "!dist/task.mjs"
+    "!test.js"
   ],
   "scripts": {
     "build": "rimraf chunk-* && tsup",
