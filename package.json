@@ -37,18 +37,24 @@
   },
   "exports": {
     ".": {
+      "types": "./dist/index.d.ts",
       "require": "./dist/index.js",
-      "import": "./dist/index.mjs",
-      "types": "./dist/index.d.ts"
+      "default": "./dist/index.mjs"
     },
     "./spin": {
       "types": "./dist/spin.d.ts",
-      "node": "./spin.js",
+      "node": {
+        "require": "./spin.js",
+        "default": "./dist/spin.mjs"
+      },
       "default": "./stub.js"
     },
     "./task": {
       "types": "./dist/task.d.ts",
-      "node": "./task.js",
+      "node": {
+        "require": "./task.js",
+        "default": "./dist/task.mjs"
+      },
       "default": "./stub.js"
     }
   }
