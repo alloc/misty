@@ -6,21 +6,49 @@ import { getSpinner, spin, spinListeners } from './spin'
 let activeTasks = new Set<MistyTask>()
 
 export interface MistyTask {
+  isFooter: boolean
   height: number
   render(showElapsed?: boolean): void
   update(msg?: string): void
   finish(msg?: string): void
 }
 
+export namespace MistyTask {
+  export interface Options {
+    /**
+     * Control whether the spinner is visible for this task.
+     *
+     * The default value is `true` unless `footer: true` is used.
+     */
+    spinner?: boolean
+    /**
+     * Always render this task after normal tasks.
+     *
+     * This also implies `spinner: false`
+     */
+    footer?: boolean
+  }
+}
+
 export function startTask(
   init: string | (() => string),
-  hideSpinner?: boolean
+  options: boolean | MistyTask.Options = {}
 ): MistyTask {
+  if (typeof options == 'boolean') {
+    options = { spinner: options }
+  }
+
+  const spinnerEnabled = options.footer
+    ? options.spinner
+    : options.spinner !== false
+
   let text = typeof init == 'string' ? init : init()
   let render = typeof init == 'string' ? () => text : init
   let start = Date.now()
   let output = ''
+
   const task: MistyTask = {
+    isFooter: !!options.footer,
     get height() {
       const lines = stripAnsi(output).split('\n')
       return lines.reduce(
@@ -31,7 +59,7 @@ export function startTask(
     },
     render(showElapsed = true) {
       const elapsed = showElapsed ? gray(formatElapsed(start)) : ''
-      output = hideSpinner ? '' : getSpinner() + ' '
+      output = spinnerEnabled ? getSpinner() + ' ' : ''
       output += text + ' ' + elapsed
       print(output + '\n')
     },
@@ -58,14 +86,17 @@ export function startTask(
       }
     },
   }
+
   if (!activeTasks.size) {
     spinListeners.add(printTasks)
     spin(true)
   }
+
   install()
   if (!wiped) {
     task.render(false)
   }
+
   activeTasks.add(task)
   return task
 }
@@ -77,7 +108,8 @@ function printTasks() {
     wiped = true
     clear(getTasksHeight())
     process.nextTick(() => {
-      activeTasks.forEach(task => task.render())
+      activeTasks.forEach(task => !task.isFooter && task.render())
+      activeTasks.forEach(task => task.isFooter && task.render())
       wiped = false
     })
   }
