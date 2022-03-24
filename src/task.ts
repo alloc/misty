@@ -16,6 +16,11 @@ export interface MistyTask {
 export namespace MistyTask {
   export interface Options {
     /**
+     * Control whether the elapsed time is visible for this task.
+     * @default true
+     */
+    elapsed?: boolean
+    /**
      * Control whether the spinner is visible for this task.
      *
      * The default value is `true` unless `footer: true` is used.
@@ -38,6 +43,7 @@ export function startTask(
     options = { spinner: options }
   }
 
+  const elapsedVisible = options.elapsed !== false
   const spinnerEnabled = options.footer
     ? options.spinner
     : options.spinner !== false
@@ -57,7 +63,7 @@ export function startTask(
         0
       )
     },
-    render(showElapsed = true) {
+    render(showElapsed = elapsedVisible) {
       const elapsed = showElapsed ? gray(formatElapsed(start)) : ''
       output = spinnerEnabled ? getSpinner() + ' ' : ''
       output += text + ' ' + elapsed
